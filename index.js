@@ -46,16 +46,20 @@ connect.then((db) => {
     console.log('Connected correctly to server');
      
     Dishes.create({
-        name: 'brocoli',
+        name: 'brocolini',
         description: 'test'
     })
     .then((dish) => {
         console.log(dish);
 
-        return Dishes.find({}).exec();
+        return Dishes.findByIdAndUpdate(dish._id,{
+        $set:{ description: 'updated test'}
+        },{
+            new:true
+        }).exec();
     })
-    .then((dishes) => {
-        console.log(dishes);
+    .then((dish) => {
+        console.log(dish);
 
         return db.collection('dishes').drop();
     })
