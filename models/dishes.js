@@ -32,5 +32,5 @@ const dishSchema = new Schema({
 },{
     timestamps:true
 });
-var Dishes = mongoose.model('Dish',dishSchema);
+var Dishes = mongoose.model('dish',dishSchema);
 module.exports = Dishes;
